@@ -1,16 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "comic_hero": {
       "type": "comic-hero",
-      "settings": {}
+      "settings": {
+        "issue_text": "Vol. 1 • Bel Air, MD",
+        "corner_text": "FRESH ROAST",
+        "tagline": "May the Brew Be with You",
+        "heading_line1": "EVERY SIP",
+        "heading_line2": "IS MAGICAL",
+        "blurb": "Small-batch coffee with big-screen personality. Carefully selected, freshly roasted, and packed by hand for our ohana — that's you.",
+        "mascot_image": "shopify://shop_images/Captain_Coffee.png",
+        "kapow_text": "BREW-POW!",
+        "button1_label": "Shop the Blends",
+        "button1_link": "",
+        "button2_label": "Join the Crew",
+        "button2_link": ""
+      }
     },
     "comic_featured": {
       "type": "comic-featured-collection",
-      "settings": {}
+      "settings": {
+        "heading": "This Issue's Blends",
+        "collection": "",
+        "products_to_show": 4,
+        "show_description": true,
+        "show_view_all": true,
+        "view_all_text": "See all the blends",
+        "add_text": "Add to Cart",
+        "soldout_text": "Sold Out"
+      }
     },
     "comic_sampler": {
       "type": "comic-sampler",
-      "settings": {}
+      "settings": {
+        "eyebrow": "The Sampler",
+        "heading": "THE CAPTAIN'S BOX",
+        "text": "Can't pick just one? Nobody can. Get four rotating blends in one box and find your coffee alter ego. The perfect gift for the hero in your life — or a very good excuse to treat yourself.",
+        "button_label": "Grab the Box",
+        "button_link": ""
+      }
     },
     "comic_crew": {
       "type": "comic-crew",
@@ -40,9 +77,24 @@
           }
         }
       },
-      "block_order": ["perk_1", "perk_2", "perk_3"],
-      "settings": {}
+      "block_order": [
+        "perk_1",
+        "perk_2",
+        "perk_3"
+      ],
+      "settings": {
+        "eyebrow": "Loyalty Program",
+        "heading": "JOIN THE CAPTAINS CREW",
+        "text": "Every hero needs a crew. Earn Ohana Bucks on every purchase and trade them in for free coffee, discounts, and crew-only drops.",
+        "button_label": "Sign Up Free",
+        "button_link": ""
+      }
     }
   },
-  "order": ["comic_hero", "comic_featured", "comic_sampler", "comic_crew"]
+  "order": [
+    "comic_hero",
+    "comic_featured",
+    "comic_sampler",
+    "comic_crew"
+  ]
 }
