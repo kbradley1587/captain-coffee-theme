@@ -1,75 +1,48 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "comic_hero": {
+      "type": "comic-hero",
+      "settings": {}
+    },
+    "comic_featured": {
+      "type": "comic-featured-collection",
+      "settings": {}
+    },
+    "comic_sampler": {
+      "type": "comic-sampler",
+      "settings": {}
+    },
+    "comic_crew": {
+      "type": "comic-crew",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "perk_1": {
+          "type": "perk",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "icon": "💵",
+            "heading": "Earn on Every Order",
+            "text": "1 Ohana Buck for every dollar you spend. Online or in person, it all counts."
           }
         },
-        "button": {
-          "type": "buttons",
+        "perk_2": {
+          "type": "perk",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "icon": "🎁",
+            "heading": "Redeem for Rewards",
+            "text": "Trade Bucks for free bags, discounts, and merch. Your points, your call."
+          }
+        },
+        "perk_3": {
+          "type": "perk",
+          "settings": {
+            "icon": "⚡",
+            "heading": "First Dibs on New Blends",
+            "text": "Crew members get early access to limited drops and seasonal releases."
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
+      "block_order": ["perk_1", "perk_2", "perk_3"],
+      "settings": {}
     }
   },
-  "order": [
-    "image_banner",
-    "featured_collection"
-  ]
+  "order": ["comic_hero", "comic_featured", "comic_sampler", "comic_crew"]
 }
