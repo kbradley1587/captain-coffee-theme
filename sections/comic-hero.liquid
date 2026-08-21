@@ -1,4 +1,15 @@
-{% comment %} Captain Coffee — Comic Cover Hero {% endcomment %}
+{% comment %} Captain Coffee — Comic Cover Hero (v2: SVG starburst) {% endcomment %}
+
+{% style %}
+  .cc-burst-svg {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(56rem, 100%);
+    height: min(56rem, 100%);
+    filter: drop-shadow(4px 4px 0 var(--cc-ink));
+  }
+{% endstyle %}
 
 <section class="cc-hero">
   <div class="cc-cover">
@@ -31,7 +42,14 @@
     </div>
 
     <div class="cc-hero-art" aria-hidden="true">
-      <div class="cc-burst"></div>
+      <svg class="cc-burst-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <polygon
+          points="50,0 60,12 75,4 78,19 94,17 89,31 100,39 89,50 100,61 89,69 94,83 78,81 75,96 60,88 50,100 40,88 25,96 22,81 6,83 11,69 0,61 11,50 0,39 11,31 6,17 22,19 25,4 40,12"
+          fill="#FFC629"
+          stroke="#191428"
+          stroke-width="1.6"
+        />
+      </svg>
       {%- if section.settings.mascot_image != blank -%}
         <img
           class="cc-mascot"
