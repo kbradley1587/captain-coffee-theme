@@ -29,12 +29,12 @@
     "comic_featured": {
       "type": "comic-featured-collection",
       "settings": {
-        "heading": "This Issue's Blends",
+        "heading": "Coffee’s this way!",
         "collection": "frontpage",
         "products_to_show": 4,
         "show_description": true,
         "show_view_all": true,
-        "view_all_text": "See all the blends",
+        "view_all_text": "Shop coffees here!",
         "add_text": "Add to Cart",
         "soldout_text": "Sold Out"
       }
