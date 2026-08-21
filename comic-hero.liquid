@@ -1,0 +1,137 @@
+{% comment %} Captain Coffee — Comic Cover Hero {% endcomment %}
+
+<section class="cc-hero">
+  <div class="cc-cover">
+    {%- if section.settings.issue_text != blank -%}
+      <div class="cc-issue-box">{{ section.settings.issue_text }}</div>
+    {%- endif -%}
+    {%- if section.settings.corner_text != blank -%}
+      <div class="cc-price-corner">{{ section.settings.corner_text }}</div>
+    {%- endif -%}
+
+    <div class="cc-hero-copy">
+      {%- if section.settings.tagline != blank -%}
+        <div class="cc-hero-tag">{{ section.settings.tagline }}</div>
+      {%- endif -%}
+      <h1 class="cc-hero-title">
+        {{ section.settings.heading_line1 }}<br>
+        <em>{{ section.settings.heading_line2 }}</em>
+      </h1>
+      {%- if section.settings.blurb != blank -%}
+        <p class="cc-hero-blurb">{{ section.settings.blurb }}</p>
+      {%- endif -%}
+      <div class="cc-hero-ctas">
+        {%- if section.settings.button1_label != blank -%}
+          <a class="cc-btn cc-btn--red" href="{{ section.settings.button1_link | default: routes.all_products_collection_url }}">{{ section.settings.button1_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button2_label != blank -%}
+          <a class="cc-btn cc-btn--ghost" href="{{ section.settings.button2_link | default: routes.root_url }}">{{ section.settings.button2_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="cc-hero-art" aria-hidden="true">
+      <div class="cc-burst"></div>
+      {%- if section.settings.mascot_image != blank -%}
+        <img
+          class="cc-mascot"
+          src="{{ section.settings.mascot_image | image_url: width: 800 }}"
+          srcset="{{ section.settings.mascot_image | image_url: width: 520 }} 520w, {{ section.settings.mascot_image | image_url: width: 800 }} 800w"
+          sizes="(max-width: 900px) 80vw, 520px"
+          alt="{{ section.settings.mascot_image.alt | default: shop.name | escape }}"
+          loading="eager"
+          width="{{ section.settings.mascot_image.width }}"
+          height="{{ section.settings.mascot_image.height }}"
+        >
+      {%- else -%}
+        <div class="cc-mascot" style="font-size:9rem; text-align:center;">☕</div>
+      {%- endif -%}
+      {%- if section.settings.kapow_text != blank -%}
+        <div class="cc-kapow">{{ section.settings.kapow_text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comic Cover Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "issue_text",
+      "label": "Issue box (top left)",
+      "default": "Vol. 1 • Bel Air, MD"
+    },
+    {
+      "type": "text",
+      "id": "corner_text",
+      "label": "Corner circle (top right)",
+      "default": "FRESH ROAST"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline banner",
+      "default": "May the Brew Be with You"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Headline line 1 (yellow)",
+      "default": "EVERY SIP"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Headline line 2 (white)",
+      "default": "IS MAGICAL"
+    },
+    {
+      "type": "textarea",
+      "id": "blurb",
+      "label": "Blurb",
+      "default": "Small-batch coffee with big-screen personality. Carefully selected, freshly roasted, and packed by hand for our ohana — that's you."
+    },
+    {
+      "type": "image_picker",
+      "id": "mascot_image",
+      "label": "Mascot image"
+    },
+    {
+      "type": "text",
+      "id": "kapow_text",
+      "label": "Action bubble text",
+      "default": "BREW-POW!"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Button 1 label",
+      "default": "Shop the Blends"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Button 2 label",
+      "default": "Join the Crew"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Button 2 link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comic Cover Hero"
+    }
+  ]
+}
+{% endschema %}

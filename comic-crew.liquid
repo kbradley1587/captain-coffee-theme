@@ -1,0 +1,104 @@
+{% comment %} Captain Coffee — Captains Crew recruitment panel. Perks are editable blocks. {% endcomment %}
+
+<section class="cc-crew cc-wrap">
+  <div class="cc-crew-panel">
+    <div class="cc-crew-left">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="cc-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p>{{ section.settings.text }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <div><a class="cc-btn" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }}</a></div>
+      {%- endif -%}
+    </div>
+    <div class="cc-crew-right">
+      {%- for block in section.blocks -%}
+        <div class="cc-perk" {{ block.shopify_attributes }}>
+          <div class="cc-perk-num">{{ block.settings.icon }}</div>
+          <div>
+            <h3>{{ block.settings.heading }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Captains Crew",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Loyalty Program"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "JOIN THE CAPTAINS CREW"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Every hero needs a crew. Earn Ohana Bucks on every purchase and trade them in for free coffee, discounts, and crew-only drops."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Sign Up Free"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "perk",
+      "name": "Perk",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "⚡"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Perk heading",
+          "default": "Earn on Every Order"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Perk text",
+          "default": "1 Ohana Buck for every dollar you spend. Online or in person, it all counts."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Captains Crew",
+      "blocks": [
+        { "type": "perk" },
+        { "type": "perk" },
+        { "type": "perk" }
+      ]
+    }
+  ]
+}
+{% endschema %}

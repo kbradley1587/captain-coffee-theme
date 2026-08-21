@@ -1,0 +1,145 @@
+{% comment %}
+  Captain Coffee — Comic Product Grid
+  Pulls products from a chosen collection. Badges come from product tags
+  that start with "badge:" — e.g. tag a product "badge:Best Seller".
+{% endcomment %}
+
+<section class="cc-products cc-wrap">
+  <div class="cc-sec-head">
+    <h2 class="cc-sec-title">{{ section.settings.heading }}</h2>
+    {%- if section.settings.show_view_all and section.settings.collection != blank -%}
+      <a class="cc-sec-link" href="{{ section.settings.collection.url }}">
+        {{ section.settings.view_all_text }} →
+      </a>
+    {%- endif -%}
+  </div>
+
+  <div class="cc-grid">
+    {%- assign col = section.settings.collection -%}
+    {%- if col != blank -%}
+      {%- for product in col.products limit: section.settings.products_to_show -%}
+        <article class="cc-card">
+          {%- for tag in product.tags -%}
+            {%- if tag contains 'badge:' -%}
+              <span class="cc-badge">{{ tag | remove_first: 'badge:' | strip }}</span>
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          <a class="cc-card-art" href="{{ product.url }}" tabindex="-1">
+            {%- if product.featured_image != blank -%}
+              <img
+                src="{{ product.featured_image | image_url: width: 600 }}"
+                srcset="{{ product.featured_image | image_url: width: 400 }} 400w, {{ product.featured_image | image_url: width: 600 }} 600w"
+                sizes="(max-width: 620px) 90vw, 300px"
+                alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                loading="lazy"
+                width="{{ product.featured_image.width }}"
+                height="{{ product.featured_image.height }}"
+              >
+            {%- else -%}
+              <span class="cc-noimg" aria-hidden="true">☕</span>
+            {%- endif -%}
+          </a>
+
+          <div class="cc-card-body">
+            <h3 class="cc-card-name"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+            {%- if section.settings.show_description -%}
+              <p class="cc-card-note">{{ product.description | strip_html | truncate: 110 }}</p>
+            {%- endif -%}
+            <div class="cc-card-row">
+              <span class="cc-price">
+                {%- if product.compare_at_price > product.price -%}
+                  <s style="opacity:.55; font-weight:600; margin-right:.4em;">{{ product.compare_at_price | money }}</s>
+                {%- endif -%}
+                {{ product.price | money }}
+              </span>
+              {%- form 'product', product -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                {%- if product.available -%}
+                  <button type="submit" class="cc-add">{{ section.settings.add_text }}</button>
+                {%- else -%}
+                  <button type="button" class="cc-add" disabled>{{ section.settings.soldout_text }}</button>
+                {%- endif -%}
+              {%- endform -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for i in (1..4) -%}
+        <article class="cc-card">
+          <div class="cc-card-art"><span class="cc-noimg" aria-hidden="true">☕</span></div>
+          <div class="cc-card-body">
+            <h3 class="cc-card-name">Pick a collection</h3>
+            <p class="cc-card-note">Choose a collection in the section settings and products will appear here.</p>
+          </div>
+        </article>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comic Product Grid",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "This Issue's Blends"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Products to show",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show product descriptions",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'view all' link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "'View all' text",
+      "default": "See all the blends"
+    },
+    {
+      "type": "text",
+      "id": "add_text",
+      "label": "Add to cart button text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "soldout_text",
+      "label": "Sold out button text",
+      "default": "Sold Out"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comic Product Grid"
+    }
+  ]
+}
+{% endschema %}
