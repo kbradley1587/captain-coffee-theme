@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Captain Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#191428;
+  --paper:#F6EBD2;
+  --paper-dark:#EFDDB8;
+  --hero-red:#E23A2E;
+  --bolt-yellow:#FFC629;
+  --brew:#5A321F;
+  --sky:#2B5FAD;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(25,20,40,.05) 1px, transparent 1.4px);
+  background-size:7px 7px;
+}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+h1,h2,h3{font-family:'Bangers',cursive;letter-spacing:.03em;font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.btn{
+  display:inline-block;font-family:'Bangers',cursive;font-size:1.25rem;letter-spacing:.06em;
+  padding:.65em 1.5em;border:3px solid var(--ink);cursor:pointer;text-decoration:none;
+  background:var(--bolt-yellow);color:var(--ink);
+  box-shadow:5px 5px 0 var(--ink);transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn--red{background:var(--hero-red);color:#fff}
+.eyebrow{
+  display:inline-block;font-family:'Bangers',cursive;font-size:1rem;letter-spacing:.12em;
+  background:var(--ink);color:var(--bolt-yellow);padding:.3em 1em;transform:rotate(-1.5deg);
+}
+
+/* announcement + nav (matches homepage) */
+.announce{background:var(--ink);color:var(--paper);text-align:center;font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:8px 16px}
+.announce b{color:var(--bolt-yellow)}
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:3px solid var(--ink)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:1180px;margin:0 auto}
+.logo{font-family:'Bangers',cursive;font-size:1.9rem;line-height:1;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-badge{width:44px;height:44px;border:3px solid var(--ink);border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:3px 3px 0 var(--ink);flex:0 0 auto;overflow:hidden}
+.logo-badge img{width:36px;height:36px;object-fit:contain}
+.nav-links{display:flex;gap:28px;list-style:none;font-weight:700;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em}
+.nav-links a{text-decoration:none;padding-bottom:2px;border-bottom:3px solid transparent}
+.nav-links a:hover,.nav-links a.active{border-bottom-color:var(--hero-red)}
+.cart-btn{font-family:'Bangers',cursive;font-size:1.1rem;background:#fff;border:3px solid var(--ink);padding:.4em 1em;box-shadow:4px 4px 0 var(--ink);cursor:pointer;text-decoration:none}
+.cart-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+
+/* page hero — origin story cover */
+.page-hero{padding:56px 24px 64px}
+.origin{
+  position:relative;max-width:1180px;margin:0 auto;text-align:center;
+  background:
+    radial-gradient(rgba(255,255,255,.28) 2px, transparent 2.6px),
+    radial-gradient(circle at 50% 10%, #F0574B 0%, var(--hero-red) 55%, #A9211A 100%);
+  background-size:12px 12px, cover;
+  border:4px solid var(--ink);box-shadow:12px 12px 0 var(--ink);
+  padding:clamp(44px,6vw,76px) clamp(24px,5vw,64px);color:#fff;
+}
+.issue-box{
+  position:absolute;top:18px;left:18px;background:#fff;border:3px solid var(--ink);color:var(--ink);
+  padding:6px 12px;font-weight:900;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);
+}
+.origin-title{font-size:clamp(2.8rem,7vw,5rem);line-height:.95;color:var(--bolt-yellow);text-shadow:4px 4px 0 var(--ink);margin-bottom:14px}
+.origin-tag{
+  display:inline-block;background:#fff;color:var(--ink);border:3px solid var(--ink);
+  font-family:'Bangers',cursive;font-size:clamp(1rem,2vw,1.3rem);letter-spacing:.08em;
+  padding:.35em 1em;transform:rotate(-1deg);box-shadow:5px 5px 0 var(--ink);margin-bottom:22px;
+}
+.origin p{max-width:62ch;margin:0 auto;font-weight:600;font-size:1.05rem;text-shadow:1px 1px 0 rgba(0,0,0,.3)}
+
+/* pillars — four comic panels */
+.pillars{padding:64px 0 24px}
+.sec-title{font-size:clamp(2.2rem,4.5vw,3.2rem);text-shadow:3px 3px 0 var(--bolt-yellow);text-align:center;margin-bottom:40px}
+.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.pillar{
+  position:relative;background:#fff;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  padding:28px 24px 26px;transition:transform .15s ease, box-shadow .15s ease;
+}
+.pillar:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.pillar-icon{
+  width:58px;height:58px;border-radius:50%;border:3px solid var(--ink);display:grid;place-items:center;
+  font-size:1.8rem;margin-bottom:14px;box-shadow:3px 3px 0 var(--ink);
+}
+.pi-yellow{background:var(--bolt-yellow)}.pi-red{background:#F7C8C0}
+.pi-blue{background:#BDD4F2}.pi-green{background:#C9E4C5}
+.pillar h3{font-size:1.55rem;margin-bottom:8px}
+.pillar p{font-size:.93rem;color:#3E3850}
+
+/* characters strip */
+.characters{padding:64px 0}
+.char-panel{
+  background:var(--sky);border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);
+  background-image:radial-gradient(rgba(255,255,255,.2) 2px, transparent 2.6px);background-size:12px 12px;
+  color:#fff;text-align:center;padding:clamp(36px,5vw,60px);position:relative;
+}
+.char-panel h2{font-size:clamp(2.2rem,4.5vw,3.2rem);text-shadow:3px 3px 0 var(--ink);margin-bottom:12px}
+.char-panel p{max-width:58ch;margin:0 auto 26px;font-weight:600;text-shadow:1px 1px 0 rgba(0,0,0,.3)}
+.speech{
+  position:absolute;top:-18px;right:6%;background:#fff;color:var(--ink);border:3px solid var(--ink);
+  font-family:'Bangers',cursive;font-size:1.1rem;padding:.35em 1em;border-radius:18px;
+  box-shadow:4px 4px 0 var(--ink);transform:rotate(3deg);
+}
+.speech::after{
+  content:"";position:absolute;bottom:-14px;left:24px;border:8px solid transparent;
+  border-top-color:var(--ink);
+}
+
+/* team */
+.team{padding:16px 0 72px}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.hero-card{
+  background:#fff;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  text-align:center;padding:0 0 24px;overflow:visible;position:relative;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.hero-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.hero-card-top{
+  height:88px;border-bottom:3px solid var(--ink);
+  background-image:radial-gradient(rgba(25,20,40,.14) 1.5px, transparent 2px);background-size:10px 10px;
+}
+.hct-red{background-color:#F7C8C0}.hct-yellow{background-color:#FBE7A8}.hct-blue{background-color:#BDD4F2}
+.avatar{
+  width:110px;height:110px;border-radius:50%;border:4px solid var(--ink);background:var(--paper-dark);
+  display:grid;place-items:center;font-size:3rem;margin:-58px auto 14px;position:relative;z-index:2;
+  box-shadow:4px 4px 0 var(--ink);
+}
+.role-tag{
+  display:inline-block;font-family:'Bangers',cursive;font-size:.9rem;letter-spacing:.08em;
+  background:var(--ink);color:var(--bolt-yellow);padding:.25em .9em;transform:rotate(-1.5deg);margin-bottom:10px;
+}
+.hero-card h3{font-size:1.7rem;line-height:1;margin-bottom:2px}
+.hero-card p{font-size:.9rem;color:#3E3850;padding:0 22px;margin-top:8px}
+
+/* cta */
+.cta{padding:0 0 80px;text-align:center}
+.cta-inner{
+  max-width:820px;margin:0 auto;background:#fff;border:3px solid var(--ink);
+  box-shadow:7px 7px 0 var(--ink);padding:clamp(32px,5vw,56px);position:relative;
+}
+.cta-inner::before{
+  content:"YOUR STORY STARTS HERE";position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-1.5deg);
+  background:var(--hero-red);color:#fff;border:3px solid var(--ink);font-family:'Bangers',cursive;
+  letter-spacing:.08em;padding:.25em 1em;white-space:nowrap;box-shadow:3px 3px 0 var(--ink);
+}
+.cta h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:14px;text-shadow:3px 3px 0 var(--bolt-yellow)}
+.cta p{max-width:56ch;margin:0 auto 24px;font-weight:500}
+
+/* footer (matches homepage) */
+footer{background:var(--ink);color:var(--paper);padding:56px 0 32px;border-top:4px solid var(--hero-red)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.foot-logo{font-family:'Bangers',cursive;font-size:1.8rem;color:var(--bolt-yellow);margin-bottom:8px}
+.foot-grid h4{font-family:'Bangers',cursive;font-size:1.2rem;letter-spacing:.06em;margin-bottom:12px;color:var(--bolt-yellow)}
+.foot-grid ul{list-style:none;display:grid;gap:8px;font-size:.92rem}
+.foot-grid a{text-decoration:none;opacity:.9}
+.foot-grid a:hover{opacity:1;text-decoration:underline}
+.foot-bottom{border-top:1px solid rgba(246,235,210,.25);padding-top:20px;font-size:.8rem;opacity:.75;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){
+  .nav-links{display:none}
+  .foot-grid{grid-template-columns:1fr}
+  .page-hero{padding:32px 16px 48px}
+  .speech{position:static;display:inline-block;margin-bottom:16px;transform:rotate(-1deg)}
+  .speech::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">FREE LOCAL PICKUP IN BEL AIR, MD &nbsp;•&nbsp; Earn <b>Ohana Bucks</b> on every order with the Captains Crew</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html"><span class="logo-badge"><img src="Captain_Coffee.png" alt=""></span>CAPTAIN COFFEE</a>
+    <ul class="nav-links">
+      <li><a href="index.html#blends">Shop Blends</a></li>
+      <li><a href="index.html#sampler">Captain's Box</a></li>
+      <li><a href="index.html#crew">Captains Crew</a></li>
+      <li><a href="about.html" class="active">Our Story</a></li>
+    </ul>
+    <a class="cart-btn" href="#">CART (0)</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ORIGIN STORY HERO -->
+<section class="page-hero">
+  <div class="origin">
+    <div class="issue-box">The Origin Story</div>
+    <h1 class="origin-title">ABOUT CAPTAIN COFFEE</h1>
+    <div class="origin-tag">2000s Nostalgia &nbsp;•&nbsp; Bold Flavor &nbsp;•&nbsp; Big Personalities</div>
+    <p>We brew personality. Captain Coffee blends retro pop-culture fun with seriously good beans. Every roast has a story, a voice, and a character all its own — and behind every bag is a crew that treats you like family.</p>
+  </div>
+</section>
+
+<!-- WHAT MAKES US DIFFERENT -->
+<section class="pillars wrap">
+  <h2 class="sec-title">What Makes Us Different</h2>
+  <div class="pillar-grid">
+    <div class="pillar">
+      <div class="pillar-icon pi-yellow">🔍</div>
+      <h3>Your Discovery Experience</h3>
+      <p>Each blend embodies a unique personality. Talk to them, learn their lore, and find the perfect flavor match for your palate.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon pi-red">📼</div>
+      <h3>Retro, But Refined</h3>
+      <p>We channel early-2000s vibes with modern roasting, careful quality control, and clean design. Nostalgia that actually tastes good.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon pi-blue">🤝</div>
+      <h3>Community First</h3>
+      <p>From collabs to fan art, Captain Coffee is built with (and for) our community. Ohana means family, and family means every customer.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon pi-green">🌱</div>
+      <h3>Ethical Sourcing</h3>
+      <p>Great coffee starts at the source. We focus on fair partnerships and traceable beans, so every cup does right by the people who grew it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COFFEE CHARACTERS -->
+<section class="characters wrap">
+  <div class="char-panel">
+    <div class="speech">Ready to chat?</div>
+    <h2>MEET OUR COFFEE CHARACTERS</h2>
+    <p>From pirate treasure to galaxy-grade dark roasts, each coffee has a voice. Get to know the personality in your cup before you ever brew it.</p>
+    <a class="btn" href="index.html#blends">Visit the Store</a>
+  </div>
+</section>
+
+<!-- MEET THE TEAM -->
+<section class="team wrap">
+  <h2 class="sec-title">Meet the Crew</h2>
+  <div class="team-grid">
+    <article class="hero-card">
+      <div class="hero-card-top hct-red"></div>
+      <div class="avatar">👩</div>
+      <div class="role-tag">Co-Founder &amp; CEO</div>
+      <h3>Kayla</h3>
+      <p>The brilliant backbone of Captain Coffee — turning big ideas into crisp operations and keeping the ship steady through every storm.</p>
+    </article>
+    <article class="hero-card">
+      <div class="hero-card-top hct-yellow"></div>
+      <div class="avatar">👨</div>
+      <div class="role-tag">Head of Product</div>
+      <h3>Mark</h3>
+      <p>The adventurous dreamer behind our blends and characters — thinks in quests, designs with nostalgia, and ships with precision.</p>
+    </article>
+    <article class="hero-card">
+      <div class="hero-card-top hct-blue"></div>
+      <div class="avatar">🧑</div>
+      <div class="role-tag">Coffee Curator</div>
+      <h3>Alex</h3>
+      <p>Sharp-witted innovator dialing in flavor and feel — the spark of youth: bold, clever, and just a little bit subversive.</p>
+    </article>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta wrap">
+  <div class="cta-inner">
+    <h2>Join the Ohana</h2>
+    <p>Every hero needs a good origin story, and yours starts with a great cup. Grab a blend, join the Captains Crew, and become part of the family.</p>
+    <a class="btn btn--red" href="index.html#blends">Shop the Blends</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">CAPTAIN COFFEE</div>
+        <p style="font-size:.9rem;max-width:32ch">May the Brew Be with You.<br>Bel Air, Maryland</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="index.html#blends">All Blends</a></li>
+          <li><a href="index.html#sampler">The Captain's Box</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The Crew</h4>
+        <ul>
+          <li><a href="index.html#crew">Captains Crew Rewards</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="#">Contact: 443-643-7721</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Captain Coffee. All rights reserved.</span>
+      <span>Powered by Shopify (concept mockup)</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

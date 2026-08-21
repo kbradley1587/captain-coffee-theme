@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Captain Coffee — May the Brew Be with You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#191428;          /* espresso-ink, borders & text */
+  --paper:#F6EBD2;        /* newsprint page */
+  --paper-dark:#EFDDB8;   /* aged newsprint */
+  --hero-red:#E23A2E;     /* cape red */
+  --bolt-yellow:#FFC629;  /* lightning yellow */
+  --brew:#5A321F;         /* roasted bean brown */
+  --sky:#2B5FAD;          /* comic sky blue */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+}
+/* newsprint halftone texture on the page itself */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(25,20,40,.05) 1px, transparent 1.4px);
+  background-size:7px 7px;
+}
+main,header,footer{position:relative;z-index:1}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,.display{font-family:'Bangers',cursive;letter-spacing:.03em;font-weight:400}
+
+/* ---------- utility ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.panel{
+  background:#fff;border:3px solid var(--ink);
+  box-shadow:7px 7px 0 var(--ink);
+}
+.btn{
+  display:inline-block;font-family:'Bangers',cursive;font-size:1.25rem;letter-spacing:.06em;
+  padding:.65em 1.5em;border:3px solid var(--ink);cursor:pointer;text-decoration:none;
+  background:var(--bolt-yellow);color:var(--ink);
+  box-shadow:5px 5px 0 var(--ink);transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn:focus-visible{outline:3px dashed var(--sky);outline-offset:3px}
+.btn--red{background:var(--hero-red);color:#fff}
+.btn--ghost{background:#fff}
+.eyebrow{
+  display:inline-block;font-family:'Bangers',cursive;font-size:1rem;letter-spacing:.12em;
+  background:var(--ink);color:var(--bolt-yellow);padding:.3em 1em;transform:rotate(-1.5deg);
+}
+
+/* ---------- announcement bar ---------- */
+.announce{
+  background:var(--ink);color:var(--paper);text-align:center;
+  font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:8px 16px;
+}
+.announce b{color:var(--bolt-yellow)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;background:var(--paper);
+  border-bottom:3px solid var(--ink);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 24px;max-width:1180px;margin:0 auto;
+}
+.logo{font-family:'Bangers',cursive;font-size:2.2rem;line-height:1;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-badge{
+  width:64px;height:64px;border:3px solid var(--ink);border-radius:50%;
+  background:#fff;display:grid;place-items:center;
+  box-shadow:3px 3px 0 var(--ink);flex:0 0 auto;overflow:hidden;
+}
+.logo-badge img{width:54px;height:54px;object-fit:contain}
+.nav-links{display:flex;gap:28px;list-style:none;font-weight:700;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em}
+.nav-links a{text-decoration:none;padding-bottom:2px;border-bottom:3px solid transparent}
+.nav-links a:hover{border-bottom-color:var(--hero-red)}
+.cart-btn{
+  font-family:'Bangers',cursive;font-size:1.1rem;background:#fff;border:3px solid var(--ink);
+  padding:.4em 1em;box-shadow:4px 4px 0 var(--ink);cursor:pointer;text-decoration:none;
+}
+.cart-btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+
+/* ---------- hero: the comic cover ---------- */
+.hero{padding:56px 24px 72px;overflow:hidden}
+.cover{
+  position:relative;max-width:1180px;margin:0 auto;
+  background:
+    radial-gradient(rgba(255,255,255,.28) 2px, transparent 2.6px),
+    radial-gradient(circle at 70% 20%, #3C74C9 0%, var(--sky) 45%, #1E4682 100%);
+  background-size:12px 12px, cover;
+  border:4px solid var(--ink);box-shadow:12px 12px 0 var(--ink);
+  padding:clamp(28px,5vw,64px);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;
+}
+.issue-box{
+  position:absolute;top:18px;left:18px;background:#fff;border:3px solid var(--ink);
+  padding:6px 12px;font-weight:900;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);
+}
+.price-corner{
+  position:absolute;top:18px;right:18px;width:64px;height:64px;border-radius:50%;
+  background:var(--bolt-yellow);border:3px solid var(--ink);display:grid;place-items:center;
+  font-family:'Bangers',cursive;font-size:.8rem;text-align:center;line-height:1.05;
+  box-shadow:4px 4px 0 var(--ink);transform:rotate(6deg);
+}
+.hero-copy{color:#fff;padding-top:36px}
+.hero-title{
+  font-size:clamp(3rem,7.5vw,5.6rem);line-height:.95;color:var(--bolt-yellow);
+  text-shadow:4px 4px 0 var(--ink);margin:.2em 0 .15em;
+}
+.hero-title span{color:#fff}
+.hero-tag{
+  display:inline-block;background:#fff;color:var(--ink);border:3px solid var(--ink);
+  font-family:'Bangers',cursive;font-size:clamp(1.1rem,2.2vw,1.5rem);letter-spacing:.05em;
+  padding:.35em 1em;transform:rotate(-1.5deg);box-shadow:5px 5px 0 var(--ink);margin-bottom:20px;
+}
+.hero-blurb{max-width:46ch;font-weight:600;margin-bottom:28px;font-size:1.05rem;text-shadow:1px 1px 0 rgba(0,0,0,.35)}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+
+/* hero art: coffee cup hero */
+.hero-art{position:relative;display:grid;place-items:center;min-height:480px}
+.burst{
+  position:absolute;inset:0;margin:auto;width:min(560px,100%);aspect-ratio:1;
+  background:var(--bolt-yellow);border:4px solid var(--ink);
+  clip-path:polygon(50% 0%,60% 12%,75% 4%,78% 19%,94% 17%,89% 31%,100% 39%,89% 50%,100% 61%,89% 69%,94% 83%,78% 81%,75% 96%,60% 88%,50% 100%,40% 88%,25% 96%,22% 81%,6% 83%,11% 69%,0% 61%,11% 50%,0% 39%,11% 31%,6% 17%,22% 19%,25% 4%,40% 12%);
+}
+.cup{
+  position:relative;width:min(520px,100%);height:auto;
+  filter:drop-shadow(6px 6px 0 var(--ink));
+  animation:heroPop .5s cubic-bezier(.2,1.6,.4,1) both;
+}
+.kapow{
+  position:absolute;bottom:6%;right:4%;background:var(--hero-red);color:#fff;border:3px solid var(--ink);
+  font-family:'Bangers',cursive;font-size:1.4rem;letter-spacing:.05em;padding:.3em .9em;
+  transform:rotate(8deg);box-shadow:5px 5px 0 var(--ink);
+}
+@keyframes heroPop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* ---------- section headers ---------- */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+.sec-title{font-size:clamp(2.2rem,4.5vw,3.2rem);text-shadow:3px 3px 0 var(--bolt-yellow)}
+.sec-link{font-weight:900;text-transform:uppercase;font-size:.85rem;letter-spacing:.08em;text-decoration:none;border-bottom:3px solid var(--hero-red)}
+
+/* ---------- product panels ---------- */
+.products{padding:24px 0 80px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px}
+.card{
+  position:relative;background:#fff;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+  display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.card-art{
+  height:170px;display:grid;place-items:center;font-size:4rem;border-bottom:3px solid var(--ink);
+  background-image:radial-gradient(rgba(25,20,40,.14) 1.5px, transparent 2px);
+  background-size:10px 10px;
+}
+.card-art--img{height:240px;padding:0;overflow:hidden}
+.card-art--img img{width:100%;height:100%;object-fit:cover}
+.art-red{background-color:#F7C8C0}.art-yellow{background-color:#FBE7A8}
+.art-blue{background-color:#BDD4F2}.art-green{background-color:#C9E4C5}
+.badge{
+  position:absolute;top:-14px;right:-10px;background:var(--hero-red);color:#fff;
+  font-family:'Bangers',cursive;font-size:.95rem;letter-spacing:.05em;padding:.25em .8em;
+  border:3px solid var(--ink);transform:rotate(5deg);box-shadow:3px 3px 0 var(--ink);z-index:2;
+}
+.badge--gold{background:var(--bolt-yellow);color:var(--ink)}
+.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-name{font-size:1.5rem;line-height:1}
+.card-note{font-size:.88rem;color:#4A4458;flex:1}
+.card-row{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.price{font-weight:900;font-size:1.15rem}
+.add{
+  font-family:'Bangers',cursive;font-size:1rem;letter-spacing:.05em;background:var(--bolt-yellow);
+  border:3px solid var(--ink);padding:.35em 1em;cursor:pointer;box-shadow:3px 3px 0 var(--ink);
+}
+.add:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.add:focus-visible{outline:3px dashed var(--sky);outline-offset:2px}
+
+/* ---------- Captain's Box strip ---------- */
+.sampler{
+  background:var(--hero-red);border-top:4px solid var(--ink);border-bottom:4px solid var(--ink);
+  padding:64px 0;color:#fff;
+  background-image:radial-gradient(rgba(255,255,255,.18) 2px, transparent 2.6px);
+  background-size:12px 12px;
+}
+.sampler-inner{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.sampler h2{font-size:clamp(2.4rem,5vw,3.6rem);text-shadow:4px 4px 0 var(--ink);margin-bottom:10px}
+.sampler p{max-width:56ch;font-weight:600}
+
+/* ---------- Captains Crew ---------- */
+.crew{padding:80px 0}
+.crew-panel{
+  display:grid;grid-template-columns:.9fr 1.1fr;border:4px solid var(--ink);
+  box-shadow:10px 10px 0 var(--ink);overflow:hidden;background:#fff;
+}
+.crew-left{
+  background:var(--ink);color:var(--paper);padding:clamp(28px,4vw,52px);
+  display:flex;flex-direction:column;justify-content:center;gap:14px;
+}
+.crew-left h2{font-size:clamp(2.4rem,4.5vw,3.4rem);color:var(--bolt-yellow);line-height:1;text-shadow:3px 3px 0 var(--hero-red)}
+.crew-right{padding:clamp(28px,4vw,52px);display:grid;gap:22px;background:var(--paper-dark)}
+.perk{display:flex;gap:16px;align-items:flex-start}
+.perk-num{
+  flex:0 0 auto;width:46px;height:46px;border-radius:50%;background:#fff;border:3px solid var(--ink);
+  display:grid;place-items:center;font-size:1.4rem;box-shadow:3px 3px 0 var(--ink);
+}
+.perk h3{font-size:1.35rem;margin-bottom:2px}
+.perk p{font-size:.92rem;color:#3E3850}
+
+/* ---------- ohana strip ---------- */
+.ohana{padding:0 0 80px;text-align:center}
+.ohana-inner{
+  max-width:820px;margin:0 auto;background:#fff;border:3px solid var(--ink);
+  box-shadow:7px 7px 0 var(--ink);padding:clamp(32px,5vw,56px);position:relative;
+}
+.ohana-inner::before{
+  content:"OHANA MEANS FAMILY";position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-1.5deg);
+  background:var(--sky);color:#fff;border:3px solid var(--ink);font-family:'Bangers',cursive;
+  letter-spacing:.08em;padding:.25em 1em;white-space:nowrap;box-shadow:3px 3px 0 var(--ink);
+}
+.ohana h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:14px;text-shadow:3px 3px 0 var(--bolt-yellow)}
+.ohana p{max-width:58ch;margin:0 auto 24px;font-weight:500}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--paper);padding:56px 0 32px;border-top:4px solid var(--hero-red)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.foot-logo{font-family:'Bangers',cursive;font-size:1.8rem;color:var(--bolt-yellow);margin-bottom:8px}
+.foot-grid h4{font-family:'Bangers',cursive;font-size:1.2rem;letter-spacing:.06em;margin-bottom:12px;color:var(--bolt-yellow)}
+.foot-grid ul{list-style:none;display:grid;gap:8px;font-size:.92rem}
+.foot-grid a{text-decoration:none;opacity:.9}
+.foot-grid a:hover{opacity:1;text-decoration:underline}
+.foot-bottom{border-top:1px solid rgba(246,235,210,.25);padding-top:20px;font-size:.8rem;opacity:.75;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .cover{grid-template-columns:1fr}
+  .hero-art{min-height:260px;order:-1;margin-top:24px}
+  .crew-panel{grid-template-columns:1fr}
+  .sampler-inner{grid-template-columns:1fr;text-align:left}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .nav-links{display:none}
+  .foot-grid{grid-template-columns:1fr}
+  .hero{padding:32px 16px 48px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">FREE LOCAL PICKUP IN BEL AIR, MD &nbsp;•&nbsp; Earn <b>Ohana Bucks</b> on every order with the Captains Crew</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#"><span class="logo-badge"><img src="Captain_Coffee.png" alt=""></span>CAPTAIN COFFEE</a>
+    <ul class="nav-links">
+      <li><a href="#blends">Shop Blends</a></li>
+      <li><a href="#sampler">Captain's Box</a></li>
+      <li><a href="#crew">Captains Crew</a></li>
+      <li><a href="#ohana">Our Story</a></li>
+    </ul>
+    <a class="cart-btn" href="#">CART (0)</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO: styled as a comic book cover -->
+<section class="hero">
+  <div class="cover">
+    <div class="issue-box">Vol. 1 &nbsp;•&nbsp; Bel Air, MD</div>
+    <div class="price-corner">FRESH<br>ROAST</div>
+    <div class="hero-copy">
+      <div class="hero-tag">May the Brew Be with You</div>
+      <h1 class="hero-title">EVERY SIP<br><span>IS MAGICAL</span></h1>
+      <p class="hero-blurb">Small-batch coffee with big-screen personality. Carefully selected, freshly roasted, and packed by hand for our ohana — that's you.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--red" href="#blends">Shop the Blends</a>
+        <a class="btn btn--ghost" href="#crew">Join the Crew</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="burst"></div>
+      <img class="cup" src="Captain_Coffee.png" alt="Captain Coffee mascot — a superhero coffee mug with a red cape">
+      <div class="kapow">BREW-POW!</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT GRID: comic panels -->
+<section class="products wrap" id="blends">
+  <div class="sec-head">
+    <h2 class="sec-title">This Issue's Blends</h2>
+    <a class="sec-link" href="#">See all 12 blends →</a>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <span class="badge">Best Seller</span>
+      <div class="card-art art-red" aria-hidden="true">🖤</div>
+      <div class="card-body">
+        <h3 class="card-name">Darth Roast</h3>
+        <p class="card-note">A dark roast with a powerful side. Bold, smoky, and impossible to resist.</p>
+        <div class="card-row"><span class="price">$14.99</span><button class="add">Add to Cart</button></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-art art-yellow" aria-hidden="true">🍌</div>
+      <div class="card-body">
+        <h3 class="card-name">Brunana!</h3>
+        <p class="card-note">Banana-sweet, breakfast-ready, and dangerously easy to finish before noon.</p>
+        <div class="card-row"><span class="price">$14.99</span><button class="add">Add to Cart</button></div>
+      </div>
+    </article>
+    <article class="card">
+      <span class="badge badge--gold">Crew Pick</span>
+      <div class="card-art art-blue" aria-hidden="true">🕸️</div>
+      <div class="card-body">
+        <h3 class="card-name">Friendly Neighborhood Blend</h3>
+        <p class="card-note">A smooth medium roast that swings by every morning, right on time.</p>
+        <div class="card-row"><span class="price">$14.99</span><button class="add">Add to Cart</button></div>
+      </div>
+    </article>
+    <article class="card">
+      <span class="badge badge--gold">$16.00</span>
+      <div class="card-art card-art--img"><img src="cc_chocolate_java_bunga.png" alt="Chocolate Java Bunga character art — a coffee cup hero on a skateboard"></div>
+      <div class="card-body">
+        <h3 class="card-name">Chocolate Java Bunga</h3>
+        <p class="card-note">Chocolate, pecan, and caramel — sweet like a clean escape through the stars. Medium-dark, ground.</p>
+        <div class="card-row"><span class="price">$16.00</span><button class="add">Add to Cart</button></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CAPTAIN'S BOX -->
+<section class="sampler" id="sampler">
+  <div class="wrap sampler-inner">
+    <div>
+      <span class="eyebrow">The Sampler</span>
+      <h2>THE CAPTAIN'S BOX</h2>
+      <p>Can't pick just one? Nobody can. Get four rotating blends in one box and find your coffee alter ego. The perfect gift for the hero in your life — or a very good excuse to treat yourself.</p>
+    </div>
+    <a class="btn" href="#">Grab the Box — $39.99</a>
+  </div>
+</section>
+
+<!-- CAPTAINS CREW -->
+<section class="crew wrap" id="crew">
+  <div class="crew-panel">
+    <div class="crew-left">
+      <span class="eyebrow">Loyalty Program</span>
+      <h2>JOIN THE CAPTAINS CREW</h2>
+      <p>Every hero needs a crew. Earn Ohana Bucks on every purchase and trade them in for free coffee, discounts, and crew-only drops.</p>
+      <div><a class="btn" href="#">Sign Up Free</a></div>
+    </div>
+    <div class="crew-right">
+      <div class="perk">
+        <div class="perk-num">💵</div>
+        <div><h3>Earn on Every Order</h3><p>1 Ohana Buck for every dollar you spend. Online or in person, it all counts.</p></div>
+      </div>
+      <div class="perk">
+        <div class="perk-num">🎁</div>
+        <div><h3>Redeem for Rewards</h3><p>Trade Bucks for free bags, discounts, and merch. Your points, your call.</p></div>
+      </div>
+      <div class="perk">
+        <div class="perk-num">⚡</div>
+        <div><h3>First Dibs on New Blends</h3><p>Crew members get early access to limited drops like How the Mint Stole Christmas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OHANA STORY -->
+<section class="ohana wrap" id="ohana">
+  <div class="ohana-inner">
+    <h2>Brewed in Bel Air. Made for Family.</h2>
+    <p>Captain Coffee started with a simple idea: coffee should be fun, and everyone who drinks it is family. We carefully select and roast every blend, then pack each bag by hand right here in Bel Air, Maryland. When you order from us, you're not a customer — you're ohana.</p>
+    <a class="btn btn--red" href="#">Read Our Story</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">CAPTAIN COFFEE</div>
+        <p style="font-size:.9rem;max-width:32ch">May the Brew Be with You.<br>Bel Air, Maryland</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">All Blends</a></li>
+          <li><a href="#">The Captain's Box</a></li>
+          <li><a href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The Crew</h4>
+        <ul>
+          <li><a href="#">Captains Crew Rewards</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Contact: 443-643-7721</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Captain Coffee. All rights reserved.</span>
+      <span>Powered by Shopify (concept mockup)</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
