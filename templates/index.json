@@ -31,7 +31,7 @@
       "settings": {
         "heading": "This Issue's Blends",
         "collection": "",
-        "products_to_show": 3,
+        "products_to_show": 4,
         "show_description": true,
         "show_view_all": true,
         "view_all_text": "See all the blends",
