@@ -146,10 +146,10 @@
       "scheme-1": {
         "settings": {
           "background": "#ffffff",
-          "background_gradient": "",
-          "text": "#121212",
+          "background_gradient": "linear-gradient(54deg, rgba(114, 255, 179, 1) 14%, rgba(255, 250, 99, 1) 85%)",
+          "text": "#FF0A0A",
           "button": "#121212",
-          "button_label": "#ffffff",
+          "button_label": "#121212",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
