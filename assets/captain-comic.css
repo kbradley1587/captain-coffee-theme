@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;700;900&display=swap');
 
 /* ============================================================
-   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2.2)
+   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2.3)
    Layered over Dawn. Tokens + seasonal moods + sections + overrides.
    ============================================================ */
 
@@ -64,8 +64,31 @@ body.cc-mood-thanksgiving {
   --cc-cover-b: #7C4A22;
   --cc-cover-c: #523014;
   --cc-strip-bg: #C2611C;
-  --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath d='M48 14 C66 26 72 46 48 74 C24 46 30 26 48 14 Z' fill='rgba(255,255,255,0.16)'/%3E%3Cline x1='48' y1='44' x2='48' y2='84' stroke='rgba(255,255,255,0.16)' stroke-width='3'/%3E%3C/svg%3E");
+  --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130' viewBox='0 0 130 130'%3E%3Cg transform='rotate(-18 40 44)'%3E%3Cpath d='M40 16 C54 26 58 42 40 64 C22 42 26 26 40 16 Z' fill='rgba(255,178,84,0.26)'/%3E%3Cline x1='40' y1='40' x2='40' y2='72' stroke='rgba(255,178,84,0.26)' stroke-width='3'/%3E%3C/g%3E%3Cg transform='rotate(24 92 96)'%3E%3Cpath d='M92 72 C104 80 107 93 92 110 C77 93 80 80 92 72 Z' fill='rgba(160,44,28,0.30)'/%3E%3Cline x1='92' y1='92' x2='92' y2='116' stroke='rgba(160,44,28,0.30)' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E");
   --cc-decor-strip: var(--cc-decor);
+  --cc-decor-size: 130px 130px;
+  --cc-decor-strip-size: 130px 130px;
+}
+
+/* Thanksgiving only: swaying leaves over the hero cover */
+body.cc-mood-thanksgiving .cc-cover::before,
+body.cc-mood-thanksgiving .cc-cover::after {
+  content: "";
+  position: absolute;
+  width: 9.5rem; height: 11.5rem;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'%3E%3Cpath d='M50 8 C78 26 86 56 50 104 C14 56 22 26 50 8 Z' fill='%23E8913C' stroke='%23191428' stroke-width='5'/%3E%3Cline x1='50' y1='40' x2='50' y2='114' stroke='%23191428' stroke-width='5'/%3E%3Cpath d='M50 56 L30 44 M50 74 L68 60' stroke='%23191428' stroke-width='4'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(4px 4px 0 rgba(25, 20, 40, .45));
+  animation: ccLeafSway 6s ease-in-out infinite;
+}
+body.cc-mood-thanksgiving .cc-cover::before { top: 6%; right: 38%; }
+body.cc-mood-thanksgiving .cc-cover::after { bottom: 8%; left: 34%; width: 7rem; height: 8.5rem; animation-delay: -3s; }
+@keyframes ccLeafSway {
+  0%, 100% { translate: 0 0; rotate: -10deg; }
+  50% { translate: 0 1.4rem; rotate: 12deg; }
 }
 body.cc-mood-christmas {
   --cc-cover-a: #D8453A;
@@ -75,6 +98,28 @@ body.cc-mood-christmas {
   --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg stroke='rgba(255,255,255,0.28)' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='48' y1='22' x2='48' y2='74'/%3E%3Cline x1='22' y1='48' x2='74' y2='48'/%3E%3Cline x1='30' y1='30' x2='66' y2='66'/%3E%3Cline x1='66' y1='30' x2='30' y2='66'/%3E%3C/g%3E%3C/svg%3E");
   --cc-decor-strip: var(--cc-decor);
 }
+
+/* Christmas only: drifting snowflakes over the hero cover */
+body.cc-mood-christmas .cc-cover::before,
+body.cc-mood-christmas .cc-cover::after {
+  content: "";
+  position: absolute;
+  width: 9rem; height: 9rem;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg stroke='%23ffffff' stroke-width='7' stroke-linecap='round'%3E%3Cline x1='50' y1='10' x2='50' y2='90'/%3E%3Cline x1='10' y1='50' x2='90' y2='50'/%3E%3Cline x1='22' y1='22' x2='78' y2='78'/%3E%3Cline x1='78' y1='22' x2='22' y2='78'/%3E%3C/g%3E%3Cg stroke='%23191428' stroke-width='2.5' stroke-linecap='round' opacity='0.9'%3E%3Cline x1='50' y1='10' x2='50' y2='90'/%3E%3Cline x1='10' y1='50' x2='90' y2='50'/%3E%3Cline x1='22' y1='22' x2='78' y2='78'/%3E%3Cline x1='78' y1='22' x2='22' y2='78'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(3px 3px 0 rgba(25, 20, 40, .4));
+  animation: ccSnowDrift 7s ease-in-out infinite;
+}
+body.cc-mood-christmas .cc-cover::before { top: 6%; right: 38%; }
+body.cc-mood-christmas .cc-cover::after { bottom: 8%; left: 34%; width: 6.5rem; height: 6.5rem; animation-delay: -3.5s; }
+@keyframes ccSnowDrift {
+  0%, 100% { translate: 0 0; rotate: 0deg; }
+  50% { translate: 0 1.8rem; rotate: 24deg; }
+}
+
 body.cc-mood-valentine {
   --cc-cover-a: #E2566B;
   --cc-cover-b: #C22B4A;
@@ -82,6 +127,27 @@ body.cc-mood-valentine {
   --cc-strip-bg: #A31038;
   --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath d='M48 78 C28 62 20 50 20 38 A14 14 0 0 1 48 32 A14 14 0 0 1 76 38 C76 50 68 62 48 78 Z' fill='rgba(255,255,255,0.16)'/%3E%3C/svg%3E");
   --cc-decor-strip: var(--cc-decor);
+}
+
+/* Valentine's only: floating comic hearts over the hero cover */
+body.cc-mood-valentine .cc-cover::before,
+body.cc-mood-valentine .cc-cover::after {
+  content: "";
+  position: absolute;
+  width: 9rem; height: 8.5rem;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 95'%3E%3Cpath d='M50 88 C22 66 10 50 10 34 A19 19 0 0 1 50 26 A19 19 0 0 1 90 34 C90 50 78 66 50 88 Z' fill='%23E84D6A' stroke='%23191428' stroke-width='5'/%3E%3Cellipse cx='32' cy='34' rx='8' ry='5' fill='rgba(255,255,255,0.55)' transform='rotate(-24 32 34)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(4px 4px 0 rgba(25, 20, 40, .45));
+  animation: ccHeartFloat 5s ease-in-out infinite;
+}
+body.cc-mood-valentine .cc-cover::before { top: 6%; right: 38%; }
+body.cc-mood-valentine .cc-cover::after { bottom: 8%; left: 34%; width: 6.5rem; height: 6.2rem; animation-delay: -2.5s; }
+@keyframes ccHeartFloat {
+  0%, 100% { translate: 0 0; scale: 1; }
+  50% { translate: 0 -1.4rem; scale: 1.06; }
 }
 
 /* ---------- page base: newsprint ---------- */
@@ -505,6 +571,12 @@ section.utility-bar {
 @media (prefers-reduced-motion: reduce) {
   .cc-mascot { animation: none; }
   body.cc-mood-halloween .cc-cover::before,
-  body.cc-mood-halloween .cc-cover::after { animation: none; }
+  body.cc-mood-halloween .cc-cover::after,
+  body.cc-mood-thanksgiving .cc-cover::before,
+  body.cc-mood-thanksgiving .cc-cover::after,
+  body.cc-mood-christmas .cc-cover::before,
+  body.cc-mood-christmas .cc-cover::after,
+  body.cc-mood-valentine .cc-cover::before,
+  body.cc-mood-valentine .cc-cover::after { animation: none; }
   .cc-btn, .cc-add, .cc-card, .button { transition: none; }
 }
