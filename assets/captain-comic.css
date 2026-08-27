@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;700;900&display=swap');
 
 /* ============================================================
-   CAPTAIN COFFEE — COMIC DESIGN SYSTEM
-   Layered over Dawn. Design tokens + section styles + Dawn overrides.
+   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2)
+   Layered over Dawn. Tokens + seasonal moods + sections + overrides.
    ============================================================ */
 
 :root {
@@ -15,6 +15,46 @@
   --cc-sky: #2B5FAD;
   --cc-display: 'Bangers', cursive;
   --cc-body: 'Archivo', sans-serif;
+
+  /* mood-controlled tokens (Classic defaults) */
+  --cc-cover-a: #3C74C9;
+  --cc-cover-b: #2B5FAD;
+  --cc-cover-c: #1E4682;
+  --cc-strip-bg: #E23A2E;
+  --cc-decor: none;
+  --cc-decor-strip: none;
+}
+
+/* ---------- seasonal moods (set via Theme settings → Captain Coffee Seasonal) ---------- */
+body.cc-mood-halloween {
+  --cc-cover-a: #5A4180;
+  --cc-cover-b: #3A2B52;
+  --cc-cover-c: #201233;
+  --cc-strip-bg: #D96C1E;
+}
+body.cc-mood-thanksgiving {
+  --cc-cover-a: #A56A33;
+  --cc-cover-b: #7C4A22;
+  --cc-cover-c: #523014;
+  --cc-strip-bg: #C2611C;
+  --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath d='M48 14 C66 26 72 46 48 74 C24 46 30 26 48 14 Z' fill='rgba(255,255,255,0.16)'/%3E%3Cline x1='48' y1='44' x2='48' y2='84' stroke='rgba(255,255,255,0.16)' stroke-width='3'/%3E%3C/svg%3E");
+  --cc-decor-strip: var(--cc-decor);
+}
+body.cc-mood-christmas {
+  --cc-cover-a: #D8453A;
+  --cc-cover-b: #B02A20;
+  --cc-cover-c: #7E150F;
+  --cc-strip-bg: #14572E;
+  --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg stroke='rgba(255,255,255,0.28)' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='48' y1='22' x2='48' y2='74'/%3E%3Cline x1='22' y1='48' x2='74' y2='48'/%3E%3Cline x1='30' y1='30' x2='66' y2='66'/%3E%3Cline x1='66' y1='30' x2='30' y2='66'/%3E%3C/g%3E%3C/svg%3E");
+  --cc-decor-strip: var(--cc-decor);
+}
+body.cc-mood-valentine {
+  --cc-cover-a: #E2566B;
+  --cc-cover-b: #C22B4A;
+  --cc-cover-c: #8E1330;
+  --cc-strip-bg: #A31038;
+  --cc-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath d='M48 78 C28 62 20 50 20 38 A14 14 0 0 1 48 32 A14 14 0 0 1 76 38 C76 50 68 62 48 78 Z' fill='rgba(255,255,255,0.16)'/%3E%3C/svg%3E");
+  --cc-decor-strip: var(--cc-decor);
 }
 
 /* ---------- page base: newsprint ---------- */
@@ -23,6 +63,14 @@ body {
   background-color: var(--cc-paper);
   background-image: radial-gradient(rgba(25, 20, 40, .05) 1px, transparent 1.4px);
   background-size: 7px 7px;
+  color: var(--cc-ink);
+}
+
+/* Neutralize Dawn color-scheme gradients so inner pages sit on the paper.
+   (Specific ink blocks — announcement, footer — re-assert themselves below.) */
+[class*="color-scheme-"] {
+  background: transparent !important;
+  background-image: none !important;
   color: var(--cc-ink);
 }
 
@@ -65,7 +113,7 @@ body {
 .cc-wrap { max-width: 118rem; margin: 0 auto; padding: 0 2.4rem; }
 
 /* ============================================================
-   HERO — comic cover
+   HERO — comic cover (colors + decor are mood-driven)
    ============================================================ */
 .cc-hero { padding: 5.6rem 2.4rem 7.2rem; overflow: hidden; }
 .cc-cover {
@@ -73,9 +121,10 @@ body {
   max-width: 118rem;
   margin: 0 auto;
   background-image:
+    var(--cc-decor),
     radial-gradient(rgba(255, 255, 255, .28) 2px, transparent 2.6px),
-    radial-gradient(circle at 70% 20%, #3C74C9 0%, var(--cc-sky) 45%, #1E4682 100%);
-  background-size: 12px 12px, cover;
+    radial-gradient(circle at 70% 20%, var(--cc-cover-a) 0%, var(--cc-cover-b) 45%, var(--cc-cover-c) 100%);
+  background-size: 96px 96px, 12px 12px, cover;
   border: 4px solid var(--cc-ink);
   box-shadow: 12px 12px 0 var(--cc-ink);
   padding: clamp(2.8rem, 5vw, 6.4rem);
@@ -103,7 +152,7 @@ body {
   transform: rotate(6deg);
   color: var(--cc-ink);
 }
-.cc-hero-copy { color: #fff; padding-top: 3.6rem; }
+.cc-hero-copy { color: #fff; padding-top: 3.6rem; position: relative; z-index: 1; }
 .cc-hero-title {
   font-family: var(--cc-display);
   font-size: clamp(4.2rem, 7.5vw, 8rem);
@@ -129,14 +178,7 @@ body {
 .cc-hero-blurb { max-width: 46ch; font-weight: 600; margin-bottom: 2.8rem; font-size: 1.7rem; text-shadow: 1px 1px 0 rgba(0, 0, 0, .35); }
 .cc-hero-ctas { display: flex; gap: 1.6rem; flex-wrap: wrap; }
 
-.cc-hero-art { position: relative; display: grid; place-items: center; min-height: 48rem; }
-.cc-burst {
-  position: absolute; inset: 0; margin: auto;
-  width: min(56rem, 100%); aspect-ratio: 1;
-  background: var(--cc-yellow);
-  border: 4px solid var(--cc-ink);
-  clip-path: polygon(50% 0%, 60% 12%, 75% 4%, 78% 19%, 94% 17%, 89% 31%, 100% 39%, 89% 50%, 100% 61%, 89% 69%, 94% 83%, 78% 81%, 75% 96%, 60% 88%, 50% 100%, 40% 88%, 25% 96%, 22% 81%, 6% 83%, 11% 69%, 0% 61%, 11% 50%, 0% 39%, 11% 31%, 6% 17%, 22% 19%, 25% 4%, 40% 12%);
-}
+.cc-hero-art { position: relative; display: grid; place-items: center; min-height: 48rem; z-index: 1; }
 .cc-mascot {
   position: relative;
   width: min(52rem, 100%);
@@ -225,16 +267,18 @@ body {
 .cc-add[disabled] { opacity: .5; cursor: not-allowed; }
 
 /* ============================================================
-   SAMPLER STRIP — Captain's Box
+   SAMPLER STRIP — Captain's Box (bg + decor are mood-driven)
    ============================================================ */
 .cc-sampler {
-  background-color: var(--cc-red);
+  background-color: var(--cc-strip-bg);
   border-top: 4px solid var(--cc-ink);
   border-bottom: 4px solid var(--cc-ink);
   padding: 6.4rem 0;
   color: #fff;
-  background-image: radial-gradient(rgba(255, 255, 255, .18) 2px, transparent 2.6px);
-  background-size: 12px 12px;
+  background-image:
+    var(--cc-decor-strip),
+    radial-gradient(rgba(255, 255, 255, .18) 2px, transparent 2.6px);
+  background-size: 96px 96px, 12px 12px;
 }
 .cc-sampler-inner { display: grid; grid-template-columns: 1fr auto; gap: 3.2rem; align-items: center; }
 .cc-sampler h2 {
@@ -289,7 +333,7 @@ body {
 .cc-perk p { font-size: 1.4rem; color: #3E3850; margin: 0; }
 
 /* ============================================================
-   DAWN OVERRIDES — header, announcement, footer, misc
+   DAWN OVERRIDES — header, announcement, footer, inner pages
    ============================================================ */
 
 /* Header → paper masthead */
@@ -321,7 +365,6 @@ body {
 .utility-bar,
 .announcement-bar-section,
 .announcement-bar,
-.announcement-bar.color-scheme-1,
 section.utility-bar {
   background: var(--cc-ink) !important;
   background-image: none !important;
@@ -353,7 +396,7 @@ section.utility-bar {
 .footer a { color: var(--cc-paper); }
 .footer a:hover { color: var(--cc-yellow); }
 
-/* Dawn buttons → comic buttons (cart, checkout, forms) */
+/* Dawn buttons → comic buttons */
 .button,
 .shopify-payment-button__button--unbranded,
 .customer button {
@@ -373,11 +416,44 @@ section.utility-bar {
 }
 .button::after, .button::before { display: none !important; }
 
-/* Section + product page headings pick up the display face */
+/* Headings on section titles + product pages */
 .title, .title-wrapper-with-link .title, h1.product__title, .product__title h1 {
   font-family: var(--cc-display) !important;
   font-weight: 400 !important;
   letter-spacing: .03em;
+}
+
+/* Inner pages: Dawn product cards → comic panels */
+.card--card,
+.card--standard .card__inner {
+  background: #fff !important;
+  border: 3px solid var(--cc-ink);
+  border-radius: 0 !important;
+  box-shadow: 6px 6px 0 var(--cc-ink);
+}
+.card--card .card__inner { border: 0; box-shadow: none; }
+.card .card__media, .card__media img { border-radius: 0 !important; }
+.card__heading, .card__heading a {
+  font-family: var(--cc-display) !important;
+  font-size: 1.9rem;
+  color: var(--cc-ink) !important;
+  letter-spacing: .03em;
+}
+.price, .price__regular, .price-item {
+  color: var(--cc-ink) !important;
+  font-weight: 900;
+}
+.badge {
+  border-radius: 0 !important;
+  border: 2px solid var(--cc-ink) !important;
+  background: var(--cc-yellow) !important;
+  color: var(--cc-ink) !important;
+  font-weight: 700;
+}
+/* collection filter/sort text back to ink */
+.facets__label, .facet-filters__label, .facets__summary, .collection-hero__title,
+.facets__disclosure summary, .facet-filters__sort, .product-count__text {
+  color: var(--cc-ink) !important;
 }
 
 /* ---------- responsive ---------- */
