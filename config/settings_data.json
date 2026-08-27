@@ -10,6 +10,7 @@
 {
   "current": {
     "logo_width": 90,
+    "cc_mood": "thanksgiving",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
@@ -147,7 +148,7 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "linear-gradient(54deg, rgba(114, 255, 179, 1) 14%, rgba(255, 250, 99, 1) 85%)",
-          "text": "#FF0A0A",
+          "text": "#ff0a0a",
           "button": "#121212",
           "button_label": "#121212",
           "secondary_button_label": "#121212",
