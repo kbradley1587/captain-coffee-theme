@@ -11,6 +11,18 @@
   #shopify-section-{{ section.id }} .cc-hero-title em {
     color: {{ section.settings.heading2_color | default: '#ffffff' }};
   }
+  #shopify-section-{{ section.id }} .cc-btn--red {
+    background: {{ section.settings.button1_bg | default: '#E23A2E' }};
+    color: {{ section.settings.button1_color | default: '#ffffff' }};
+  }
+  #shopify-section-{{ section.id }} .cc-btn--ghost {
+    background: {{ section.settings.button2_bg | default: '#ffffff' }};
+    color: {{ section.settings.button2_color | default: '#191428' }};
+  }
+  #shopify-section-{{ section.id }} .cc-kapow {
+    background: {{ section.settings.kapow_bg | default: '#E23A2E' }};
+    color: {{ section.settings.kapow_color | default: '#ffffff' }};
+  }
   .cc-burst-svg {
     position: absolute;
     inset: 0;
@@ -158,10 +170,34 @@
       "default": "BREW-POW!"
     },
     {
+      "type": "color",
+      "id": "kapow_bg",
+      "label": "Action bubble background",
+      "default": "#E23A2E"
+    },
+    {
+      "type": "color",
+      "id": "kapow_color",
+      "label": "Action bubble text",
+      "default": "#ffffff"
+    },
+    {
       "type": "text",
       "id": "button1_label",
       "label": "Button 1 label",
       "default": "Shop the Blends"
+    },
+    {
+      "type": "color",
+      "id": "button1_bg",
+      "label": "Button 1 background",
+      "default": "#E23A2E"
+    },
+    {
+      "type": "color",
+      "id": "button1_color",
+      "label": "Button 1 text",
+      "default": "#ffffff"
     },
     {
       "type": "url",
@@ -173,6 +209,18 @@
       "id": "button2_label",
       "label": "Button 2 label",
       "default": "Join the Crew"
+    },
+    {
+      "type": "color",
+      "id": "button2_bg",
+      "label": "Button 2 background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button2_color",
+      "label": "Button 2 text",
+      "default": "#191428"
     },
     {
       "type": "url",
