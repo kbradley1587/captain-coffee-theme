@@ -34,6 +34,40 @@
     ]
   },
   {
+    "name": "Captain Coffee Seasonal",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cc_mood",
+        "label": "Seasonal look",
+        "info": "Re-skins the comic colors and decorations site-wide. Classic is the everyday look.",
+        "options": [
+          {
+            "value": "classic",
+            "label": "Classic"
+          },
+          {
+            "value": "halloween",
+            "label": "Halloween"
+          },
+          {
+            "value": "thanksgiving",
+            "label": "Thanksgiving"
+          },
+          {
+            "value": "christmas",
+            "label": "Christmas"
+          },
+          {
+            "value": "valentine",
+            "label": "Valentine's Day"
+          }
+        ],
+        "default": "classic"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
