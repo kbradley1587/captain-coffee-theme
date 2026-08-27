@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;700;900&display=swap');
 
 /* ============================================================
-   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2)
+   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2.1)
    Layered over Dawn. Tokens + seasonal moods + sections + overrides.
    ============================================================ */
 
@@ -71,6 +71,13 @@ body {
 [class*="color-scheme-"] {
   background: transparent !important;
   background-image: none !important;
+  color: var(--cc-ink);
+}
+/* Dawn also paints the body/section gradient via a bare .gradient class */
+.gradient {
+  background-color: var(--cc-paper) !important;
+  background-image: radial-gradient(rgba(25, 20, 40, .05) 1px, transparent 1.4px) !important;
+  background-size: 7px 7px !important;
   color: var(--cc-ink);
 }
 
