@@ -4,6 +4,13 @@
   that start with "badge:" — e.g. tag a product "badge:Best Seller".
 {% endcomment %}
 
+{% style %}
+  #shopify-section-{{ section.id }} .cc-sec-title {
+    color: {{ section.settings.heading_color | default: '#191428' }};
+    text-shadow: 3px 3px 0 {{ section.settings.heading_shadow | default: '#FFC629' }};
+  }
+{% endstyle %}
+
 <section class="cc-products cc-wrap">
   <div class="cc-sec-head">
     <h2 class="cc-sec-title">{{ section.settings.heading }}</h2>
@@ -90,6 +97,18 @@
       "id": "heading",
       "label": "Heading",
       "default": "This Issue's Blends"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#191428"
+    },
+    {
+      "type": "color",
+      "id": "heading_shadow",
+      "label": "Heading shadow color",
+      "default": "#FFC629"
     },
     {
       "type": "collection",
