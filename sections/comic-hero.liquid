@@ -1,6 +1,16 @@
 {% comment %} Captain Coffee — Comic Cover Hero (v2: SVG starburst) {% endcomment %}
 
 {% style %}
+  #shopify-section-{{ section.id }} .cc-hero-tag {
+    background: {{ section.settings.tagline_bg | default: '#ffffff' }};
+    color: {{ section.settings.tagline_color | default: '#191428' }};
+  }
+  #shopify-section-{{ section.id }} .cc-hero-title {
+    color: {{ section.settings.heading1_color | default: '#FFC629' }};
+  }
+  #shopify-section-{{ section.id }} .cc-hero-title em {
+    color: {{ section.settings.heading2_color | default: '#ffffff' }};
+  }
   .cc-burst-svg {
     position: absolute;
     inset: 0;
@@ -95,16 +105,40 @@
       "default": "May the Brew Be with You"
     },
     {
+      "type": "color",
+      "id": "tagline_bg",
+      "label": "Tagline banner background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Tagline banner text",
+      "default": "#191428"
+    },
+    {
       "type": "text",
       "id": "heading_line1",
       "label": "Headline line 1 (yellow)",
       "default": "EVERY SIP"
     },
     {
+      "type": "color",
+      "id": "heading1_color",
+      "label": "Headline line 1 color",
+      "default": "#FFC629"
+    },
+    {
       "type": "text",
       "id": "heading_line2",
       "label": "Headline line 2 (white)",
       "default": "IS MAGICAL"
+    },
+    {
+      "type": "color",
+      "id": "heading2_color",
+      "label": "Headline line 2 color",
+      "default": "#ffffff"
     },
     {
       "type": "textarea",
