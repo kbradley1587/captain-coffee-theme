@@ -1,5 +1,12 @@
 {% comment %} Captain Coffee — Captains Crew recruitment panel. Perks are editable blocks. {% endcomment %}
 
+{% style %}
+  #shopify-section-{{ section.id }} .cc-crew-left h2 {
+    color: {{ section.settings.heading_color | default: '#FFC629' }};
+    text-shadow: 3px 3px 0 {{ section.settings.heading_shadow | default: '#E23A2E' }};
+  }
+{% endstyle %}
+
 <section class="cc-crew cc-wrap">
   <div class="cc-crew-panel">
     <div class="cc-crew-left">
@@ -44,6 +51,18 @@
       "id": "heading",
       "label": "Heading",
       "default": "JOIN THE CAPTAINS CREW"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#FFC629"
+    },
+    {
+      "type": "color",
+      "id": "heading_shadow",
+      "label": "Heading shadow color",
+      "default": "#E23A2E"
     },
     {
       "type": "textarea",
