@@ -1,5 +1,19 @@
 {% comment %} Captain Coffee — Captain's Box promo strip {% endcomment %}
 
+{% style %}
+  #shopify-section-{{ section.id }} .cc-sampler h2 {
+    color: {{ section.settings.heading_color | default: '#ffffff' }};
+  }
+  #shopify-section-{{ section.id }} .cc-sampler p {
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+  }
+  {% if section.settings.use_custom_bg %}
+  #shopify-section-{{ section.id }} .cc-sampler {
+    background-color: {{ section.settings.custom_bg }};
+  }
+  {% endif %}
+{% endstyle %}
+
 <section class="cc-sampler">
   <div class="cc-wrap cc-sampler-inner">
     <div>
@@ -33,6 +47,30 @@
       "id": "heading",
       "label": "Heading",
       "default": "THE CAPTAIN'S BOX"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_bg",
+      "label": "Use custom background (overrides seasonal color)",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Custom background color",
+      "default": "#E23A2E"
     },
     {
       "type": "textarea",
