@@ -52,10 +52,35 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "comic_popup_yU8cVc": {
+      "type": "comic-popup",
+      "name": "Comic Popup",
+      "settings": {
+        "enabled": false,
+        "shape": "panel",
+        "delay": 3,
+        "frequency": "once",
+        "version": "v1",
+        "image": "shopify://shop_images/pumpkin.png",
+        "eyebrow": "NEW!",
+        "heading": "BIG NEWS, CREW!",
+        "text": "<p>A brand new blend has landed. Be the first to try it.</p>",
+        "button_label": "Check It Out",
+        "button_link": "",
+        "bg_color": "#ffffff",
+        "text_color": "#191428",
+        "heading_color": "#191428",
+        "heading_shadow": "#FFC629",
+        "accent_color": "#E23A2E",
+        "button_bg": "#E23A2E",
+        "button_color": "#ffffff"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "comic_popup_yU8cVc"
   ]
 }
