@@ -68,12 +68,12 @@
         "text": "<p>A brand new blend has landed. Be the first to try it. You're going to love it!</p>",
         "button_label": "Check It Out",
         "button_link": "",
-        "bg_color": "#E68B03",
+        "bg_color": "#e68b03",
         "text_color": "#191428",
         "heading_color": "#191428",
-        "heading_shadow": "#ffc629",
-        "accent_color": "#e23a2e",
-        "button_bg": "#e23a2e",
+        "heading_shadow": "#B703C7",
+        "accent_color": "#B703C7",
+        "button_bg": "#B703C7",
         "button_color": "#ffffff"
       }
     }
