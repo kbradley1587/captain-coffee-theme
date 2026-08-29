@@ -57,7 +57,7 @@
       "type": "comic-popup",
       "name": "Comic Popup",
       "settings": {
-        "enabled": true,
+        "enabled": false,
         "shape": "starburst",
         "delay": 3,
         "frequency": "once",
