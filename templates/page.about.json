@@ -1,48 +1,160 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "origin": {
       "type": "comic-origin-hero",
-      "settings": {}
+      "settings": {
+        "issue_text": "The Origin Story",
+        "heading": "ABOUT CAPTAIN COFFEE",
+        "heading_color": "#ffc629",
+        "tagline": "2000s Nostalgia • Bold Flavor • Big Personalities",
+        "text": "<p>We brew personality. Captain Coffee blends retro pop-culture fun with seriously good beans. Every roast has a story, a voice, and a character all its own — and behind every bag is a crew that treats you like family.</p>",
+        "bg_light": "#f0574b",
+        "bg_mid": "#e23a2e",
+        "bg_dark": "#a9211a"
+      }
     },
     "pillars": {
       "type": "comic-pillars",
       "blocks": {
-        "p1": { "type": "pillar", "settings": { "icon": "🔍", "icon_bg": "#FFC629", "title": "Your Discovery Experience", "text": "Each blend embodies a unique personality. Talk to them, learn their lore, and find the perfect flavor match for your palate." } },
-        "p2": { "type": "pillar", "settings": { "icon": "📼", "icon_bg": "#F7C8C0", "title": "Retro, But Refined", "text": "We channel early-2000s vibes with modern roasting, careful quality control, and clean design. Nostalgia that actually tastes good." } },
-        "p3": { "type": "pillar", "settings": { "icon": "🤝", "icon_bg": "#BDD4F2", "title": "Community First", "text": "From collabs to fan art, Captain Coffee is built with (and for) our community. Ohana means family, and family means every customer." } },
-        "p4": { "type": "pillar", "settings": { "icon": "🌱", "icon_bg": "#C9E4C5", "title": "Ethical Sourcing", "text": "Great coffee starts at the source. We focus on fair partnerships and traceable beans, so every cup does right by the people who grew it." } }
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "icon": "🔍",
+            "icon_bg": "#ffc629",
+            "title": "Your Discovery Experience",
+            "text": "Each blend embodies a unique personality. Talk to them, learn their lore, and find the perfect flavor match for your palate."
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "icon": "📼",
+            "icon_bg": "#f7c8c0",
+            "title": "Retro, But Refined",
+            "text": "We channel early-2000s vibes with modern roasting, careful quality control, and clean design. Nostalgia that actually tastes good."
+          }
+        },
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "icon": "🤝",
+            "icon_bg": "#bdd4f2",
+            "title": "Community First",
+            "text": "From collabs to fan art, Captain Coffee is built with (and for) our community. Ohana means family, and family means every customer."
+          }
+        },
+        "p4": {
+          "type": "pillar",
+          "settings": {
+            "icon": "🌱",
+            "icon_bg": "#c9e4c5",
+            "title": "Ethical Sourcing",
+            "text": "Great coffee starts at the source. We focus on fair partnerships and traceable beans, so every cup does right by the people who grew it."
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4"],
-      "settings": {}
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {
+        "heading": "What Makes Us Different",
+        "heading_color": "#191428",
+        "heading_shadow": "#ffc629"
+      }
     },
     "characters": {
       "type": "comic-callout",
-      "settings": {}
+      "settings": {
+        "bubble_text": "Ready to chat?",
+        "heading": "MEET OUR COFFEE CHARACTERS",
+        "heading_color": "#ffffff",
+        "text": "From pirate treasure to galaxy-grade dark roasts, each coffee has a voice. Get to know the personality in your cup before you ever brew it.",
+        "text_color": "#ffffff",
+        "bg_color": "#2b5fad",
+        "button_label": "Visit the Store",
+        "button_link": "",
+        "button_bg": "#ffc629",
+        "button_color": "#191428"
+      }
     },
     "team": {
       "type": "comic-team",
       "blocks": {
-        "m1": { "type": "member", "settings": { "band_color": "#F7C8C0", "role": "Co-Founder & CEO", "name": "Kayla", "bio": "The brilliant backbone of Captain Coffee — turning big ideas into crisp operations and keeping the ship steady through every storm." } },
-        "m2": { "type": "member", "settings": { "band_color": "#FBE7A8", "role": "Head of Product", "name": "Mark", "bio": "The adventurous dreamer behind our blends and characters — thinks in quests, designs with nostalgia, and ships with precision." } },
-        "m3": { "type": "member", "settings": { "band_color": "#BDD4F2", "role": "Coffee Curator", "name": "Alex", "bio": "Sharp-witted innovator dialing in flavor and feel — the spark of youth: bold, clever, and just a little bit subversive." } }
+        "m1": {
+          "type": "member",
+          "settings": {
+            "photo": "shopify://shop_images/kayla.jpg",
+            "band_color": "#f7c8c0",
+            "role": "Co-Founder & CEO",
+            "name": "Kayla",
+            "bio": "The brilliant backbone of Captain Coffee — turning big ideas into crisp operations and keeping the ship steady through every storm."
+          }
+        },
+        "m2": {
+          "type": "member",
+          "settings": {
+            "photo": "shopify://shop_images/mark.png",
+            "band_color": "#fbe7a8",
+            "role": "Head of Product",
+            "name": "Mark",
+            "bio": "The adventurous dreamer behind our blends and characters — thinks in quests, designs with nostalgia, and ships with precision."
+          }
+        },
+        "m3": {
+          "type": "member",
+          "settings": {
+            "photo": "shopify://shop_images/alex.jpg",
+            "band_color": "#bdd4f2",
+            "role": "Coffee Curator",
+            "name": "Alex",
+            "bio": "Sharp-witted innovator dialing in flavor and feel — the spark of youth: bold, clever, and just a little bit subversive."
+          }
+        }
       },
-      "block_order": ["m1", "m2", "m3"],
-      "settings": {}
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "settings": {
+        "heading": "Meet the Crew",
+        "heading_color": "#191428",
+        "heading_shadow": "#ffc629"
+      }
     },
     "cta": {
       "type": "comic-callout",
       "settings": {
         "bubble_text": "",
         "heading": "JOIN THE OHANA",
-        "heading_color": "#FFC629",
+        "heading_color": "#ffc629",
         "text": "Every hero needs a good origin story, and yours starts with a great cup. Grab a blend, join the Captains Crew, and become part of the family.",
         "text_color": "#ffffff",
         "bg_color": "#191428",
         "button_label": "Shop the Blends",
-        "button_bg": "#E23A2E",
+        "button_link": "",
+        "button_bg": "#e23a2e",
         "button_color": "#ffffff"
       }
     }
   },
-  "order": ["origin", "pillars", "characters", "team", "cta"]
+  "order": [
+    "origin",
+    "pillars",
+    "characters",
+    "team",
+    "cta"
+  ]
 }
