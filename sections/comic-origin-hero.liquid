@@ -1,0 +1,61 @@
+{% comment %} Captain Coffee — Origin Story page hero (centered cover panel) {% endcomment %}
+
+{% style %}
+  #shopify-section-{{ section.id }} .cc-origin {
+    background-image:
+      radial-gradient(rgba(255,255,255,.28) 2px, transparent 2.6px),
+      radial-gradient(circle at 50% 10%, {{ section.settings.bg_light | default: '#F0574B' }} 0%, {{ section.settings.bg_mid | default: '#E23A2E' }} 55%, {{ section.settings.bg_dark | default: '#A9211A' }} 100%);
+    background-size: 12px 12px, cover;
+  }
+  #shopify-section-{{ section.id }} .cc-origin-title {
+    color: {{ section.settings.heading_color | default: '#FFC629' }};
+  }
+{% endstyle %}
+
+<section class="cc-origin-wrap">
+  <div class="cc-origin">
+    {%- if section.settings.issue_text != blank -%}
+      <div class="cc-issue-box">{{ section.settings.issue_text }}</div>
+    {%- endif -%}
+    <h1 class="cc-origin-title">{{ section.settings.heading }}</h1>
+    {%- if section.settings.tagline != blank -%}
+      <div class="cc-origin-tag">{{ section.settings.tagline }}</div>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="cc-origin-text">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .cc-origin-wrap{padding:5.6rem 2.4rem 6.4rem}
+  .cc-origin{
+    position:relative;max-width:118rem;margin:0 auto;text-align:center;color:#fff;
+    border:4px solid var(--cc-ink);box-shadow:12px 12px 0 var(--cc-ink);
+    padding:clamp(4.4rem,6vw,7.6rem) clamp(2.4rem,5vw,6.4rem);
+  }
+  .cc-origin .cc-issue-box{position:absolute;top:1.8rem;left:1.8rem;background:#fff;border:3px solid var(--cc-ink);color:var(--cc-ink);padding:.6rem 1.2rem;font-weight:900;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:4px 4px 0 var(--cc-ink);transform:rotate(-2deg)}
+  .cc-origin-title{font-family:var(--cc-display);font-weight:400;font-size:clamp(4rem,7vw,7.6rem);line-height:.95;text-shadow:4px 4px 0 var(--cc-ink);margin:0 0 1.4rem}
+  .cc-origin-tag{display:inline-block;background:#fff;color:var(--cc-ink);border:3px solid var(--cc-ink);font-family:var(--cc-display);font-size:clamp(1.5rem,2vw,2rem);letter-spacing:.08em;padding:.35em 1em;transform:rotate(-1deg);box-shadow:5px 5px 0 var(--cc-ink);margin-bottom:2.2rem}
+  .cc-origin-text{max-width:62ch;margin:0 auto;font-weight:600;font-size:1.6rem;text-shadow:1px 1px 0 rgba(0,0,0,.3)}
+  .cc-origin-text p{margin:0 0 .8em}
+  @media(max-width:620px){.cc-origin-wrap{padding:3.2rem 1.6rem 4.4rem}}
+</style>
+
+{% schema %}
+{
+  "name": "Origin Story Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "issue_text", "label": "Issue box (top left)", "default": "The Origin Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "ABOUT CAPTAIN COFFEE" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#FFC629" },
+    { "type": "text", "id": "tagline", "label": "Tagline banner", "default": "2000s Nostalgia • Bold Flavor • Big Personalities" },
+    { "type": "richtext", "id": "text", "label": "Intro text", "default": "<p>We brew personality. Captain Coffee blends retro pop-culture fun with seriously good beans. Every roast has a story, a voice, and a character all its own — and behind every bag is a crew that treats you like family.</p>" },
+    { "type": "color", "id": "bg_light", "label": "Panel color (light)", "default": "#F0574B" },
+    { "type": "color", "id": "bg_mid", "label": "Panel color (middle)", "default": "#E23A2E" },
+    { "type": "color", "id": "bg_dark", "label": "Panel color (dark)", "default": "#A9211A" }
+  ],
+  "presets": [{ "name": "Origin Story Hero" }]
+}
+{% endschema %}

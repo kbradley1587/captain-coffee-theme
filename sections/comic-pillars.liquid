@@ -1,0 +1,61 @@
+{% comment %} Captain Coffee — pillar panels (what makes us different) {% endcomment %}
+
+{% style %}
+  #shopify-section-{{ section.id }} .cc-pillars-title {
+    color: {{ section.settings.heading_color | default: '#191428' }};
+    text-shadow: 3px 3px 0 {{ section.settings.heading_shadow | default: '#FFC629' }};
+  }
+{% endstyle %}
+
+<section class="cc-pillars cc-wrap">
+  <h2 class="cc-pillars-title">{{ section.settings.heading }}</h2>
+  <div class="cc-pillar-grid">
+    {%- for block in section.blocks -%}
+      <div class="cc-pillar" {{ block.shopify_attributes }}>
+        <div class="cc-pillar-icon" style="background: {{ block.settings.icon_bg | default: '#FFC629' }};">{{ block.settings.icon }}</div>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<style>
+  .cc-pillars{padding:6.4rem 0 2.4rem}
+  .cc-pillars-title{font-family:var(--cc-display);font-weight:400;font-size:clamp(3.2rem,4.5vw,5rem);text-align:center;margin:0 0 4rem}
+  .cc-pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(26rem,1fr));gap:2.8rem}
+  .cc-pillar{position:relative;background:#fff;border:3px solid var(--cc-ink);box-shadow:6px 6px 0 var(--cc-ink);padding:2.8rem 2.4rem 2.6rem;transition:transform .15s ease,box-shadow .15s ease}
+  .cc-pillar:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--cc-ink)}
+  .cc-pillar-icon{width:5.8rem;height:5.8rem;border-radius:50%;border:3px solid var(--cc-ink);display:grid;place-items:center;font-size:2.4rem;margin-bottom:1.4rem;box-shadow:3px 3px 0 var(--cc-ink)}
+  .cc-pillar h3{font-family:var(--cc-display);font-weight:400;font-size:2.2rem;margin:0 0 .8rem;color:var(--cc-ink)}
+  .cc-pillar p{font-size:1.4rem;color:#3E3850;margin:0}
+  @media (prefers-reduced-motion:reduce){.cc-pillar{transition:none}}
+</style>
+
+{% schema %}
+{
+  "name": "Comic Pillars",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What Makes Us Different" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#191428" },
+    { "type": "color", "id": "heading_shadow", "label": "Heading shadow color", "default": "#FFC629" }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "⭐" },
+        { "type": "color", "id": "icon_bg", "label": "Icon background", "default": "#FFC629" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Pillar title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Describe what makes you different." }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    { "name": "Comic Pillars", "blocks": [{ "type": "pillar" }, { "type": "pillar" }, { "type": "pillar" }, { "type": "pillar" }] }
+  ]
+}
+{% endschema %}
