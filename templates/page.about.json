@@ -12,26 +12,35 @@
     "origin": {
       "type": "comic-origin-hero",
       "settings": {
-        "issue_text": "The Origin Story",
+        "issue_text": "Our Origin Story",
         "heading": "ABOUT CAPTAIN COFFEE",
         "heading_color": "#ffc629",
-        "tagline": "2000s Nostalgia • Bold Flavor • Big Personalities",
-        "text": "<p>We brew personality. Captain Coffee blends retro pop-culture fun with seriously good beans. Every roast has a story, a voice, and a character all its own — and behind every bag is a crew that treats you like family.</p>",
-        "bg_light": "#f0574b",
+        "tagline": "2000s Nostalgia • Fun Flavors • Main Character  Energy",
+        "text": "<p><strong>We brew personality. Captain Coffee blends retro pop-culture fun with seriously good beans. Every roast has a story, a voice, and a character all its own — and behind every bag is a crew that treats you like you're part of the coffee Ohana!</strong></p>",
+        "bg_light": "#0000FF",
         "bg_mid": "#e23a2e",
-        "bg_dark": "#a9211a"
+        "bg_dark": "#0000FF"
       }
     },
     "pillars": {
       "type": "comic-pillars",
       "blocks": {
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "icon": "🤝",
+            "icon_bg": "#bdd4f2",
+            "title": "Community Focus",
+            "text": "We focus on YOU first and foremost. Fun website, top quality coffee's and an amazing experience!"
+          }
+        },
         "p1": {
           "type": "pillar",
           "settings": {
             "icon": "🔍",
             "icon_bg": "#ffc629",
-            "title": "Your Discovery Experience",
-            "text": "Each blend embodies a unique personality. Talk to them, learn their lore, and find the perfect flavor match for your palate."
+            "title": "Variety on tap",
+            "text": "No matter the type of coffee you enjoy, from Dark Roast, Light Roast, Flavored or Decaf... WE GOT IT!"
           }
         },
         "p2": {
@@ -40,53 +49,19 @@
             "icon": "📼",
             "icon_bg": "#f7c8c0",
             "title": "Retro, But Refined",
-            "text": "We channel early-2000s vibes with modern roasting, careful quality control, and clean design. Nostalgia that actually tastes good."
-          }
-        },
-        "p3": {
-          "type": "pillar",
-          "settings": {
-            "icon": "🤝",
-            "icon_bg": "#bdd4f2",
-            "title": "Community First",
-            "text": "From collabs to fan art, Captain Coffee is built with (and for) our community. Ohana means family, and family means every customer."
-          }
-        },
-        "p4": {
-          "type": "pillar",
-          "settings": {
-            "icon": "🌱",
-            "icon_bg": "#c9e4c5",
-            "title": "Ethical Sourcing",
-            "text": "Great coffee starts at the source. We focus on fair partnerships and traceable beans, so every cup does right by the people who grew it."
+            "text": "We want our coffee, website and logos to be a fun get away from the stressors of life! Retro! Entertaining! Engaging!"
           }
         }
       },
       "block_order": [
-        "p1",
-        "p2",
         "p3",
-        "p4"
+        "p1",
+        "p2"
       ],
       "settings": {
         "heading": "What Makes Us Different",
         "heading_color": "#191428",
         "heading_shadow": "#ffc629"
-      }
-    },
-    "characters": {
-      "type": "comic-callout",
-      "settings": {
-        "bubble_text": "Ready to chat?",
-        "heading": "MEET OUR COFFEE CHARACTERS",
-        "heading_color": "#ffffff",
-        "text": "From pirate treasure to galaxy-grade dark roasts, each coffee has a voice. Get to know the personality in your cup before you ever brew it.",
-        "text_color": "#ffffff",
-        "bg_color": "#2b5fad",
-        "button_label": "Visit the Store",
-        "button_link": "",
-        "button_bg": "#ffc629",
-        "button_color": "#191428"
       }
     },
     "team": {
@@ -153,7 +128,6 @@
   "order": [
     "origin",
     "pillars",
-    "characters",
     "team",
     "cta"
   ]
