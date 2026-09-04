@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;700;900&display=swap');
 
 /* ============================================================
-   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2.3)
+   CAPTAIN COFFEE — COMIC DESIGN SYSTEM  (v2.4)
    Layered over Dawn. Tokens + seasonal moods + sections + overrides.
    ============================================================ */
 
@@ -325,7 +325,7 @@ body {
 }
 .cc-card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--cc-ink); }
 .cc-card-art {
-  height: 24rem;
+  aspect-ratio: 1 / 1;
   border-bottom: 3px solid var(--cc-ink);
   overflow: hidden;
   display: grid; place-items: center;
