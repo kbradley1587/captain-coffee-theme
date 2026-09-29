@@ -71,9 +71,9 @@
         "bg_color": "#e68b03",
         "text_color": "#191428",
         "heading_color": "#191428",
-        "heading_shadow": "#B703C7",
-        "accent_color": "#B703C7",
-        "button_bg": "#B703C7",
+        "heading_shadow": "#b703c7",
+        "accent_color": "#b703c7",
+        "button_bg": "#b703c7",
         "button_color": "#ffffff"
       }
     }
