@@ -15,7 +15,7 @@
         "issue_text": "Vol. 1 • Bel Air, MD",
         "corner_text": "Fun themes",
         "tagline": "May the Boooo Be with You!",
-        "tagline_bg": "#FF6601",
+        "tagline_bg": "#ff6601",
         "tagline_color": "#191428",
         "heading_line1": "EVERY SIP",
         "heading1_color": "#ff6600",
@@ -73,7 +73,7 @@
           "settings": {
             "icon": "💵",
             "heading": "Earn on Every Order",
-            "text": "1 Ohana Buck for every dollar you spend. Online or in person, it all counts."
+            "text": "1 Ohana Buck for every dollar you spend."
           }
         },
         "perk_2": {
