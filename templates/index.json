@@ -73,7 +73,7 @@
           "settings": {
             "icon": "💵",
             "heading": "Earn on Every Order",
-            "text": "1 Ohana Buck for every dollar you spend."
+            "text": "1 Ohana Buck for every $3 spent!"
           }
         },
         "perk_2": {
@@ -101,8 +101,8 @@
       "settings": {
         "eyebrow": "Loyalty Program",
         "heading": "JOIN THE CAPTAIN'S CREW",
-        "text": "Every hero needs a crew. Earn Ohana Bucks on every purchase and trade them in for free coffee, discounts, and crew-only drops.",
-        "button_label": "Sign Up Free",
+        "text": "Every Captain needs a crew. Earn Ohana Bucks on every purchase and trade them in for free coffee, discounts, and crew-only drops.",
+        "button_label": "Sign Up FOR Free! get 50 Ohana bucks!",
         "button_link": ""
       }
     }
