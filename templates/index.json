@@ -41,7 +41,7 @@
       "settings": {
         "heading": "Coffee’s this way!",
         "heading_color": "#191428",
-        "heading_shadow": "#ffc629",
+        "heading_shadow": "#FF6600",
         "collection": "frontpage",
         "products_to_show": 4,
         "show_description": true,
